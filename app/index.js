@@ -28,6 +28,12 @@ const Home = () => {
           ),
           headerTitle: "HHJ App",
           headerTitleAlign: "center",
+          headerTitleStyle: {
+            fontFamily: FONT.bold,
+            fontSize: SIZES.xLarge,
+            color: COLORS.primary,
+            marginTop: 2,
+          },
         }}
       />
 
