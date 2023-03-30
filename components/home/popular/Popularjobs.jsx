@@ -7,12 +7,10 @@ import {
   ActivityIndicator,
 } from "react-native";
 import useFetch from "../../../hook/useFetch";
-
 import styles from "./popularjobs.style";
 import { COLORS, SIZES } from "../../../constants";
 import PopularJobCard from "../../common/cards/popular/PopularJobCard";
 import { useRouter } from "expo-router";
-// import { ErrorToast } from "react-native-toast-message";
 
 const Popularjobs = () => {
   const router = useRouter();
