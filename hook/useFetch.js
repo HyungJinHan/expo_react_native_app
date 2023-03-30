@@ -27,42 +27,42 @@ const useFetch = (endpoint, query) => {
       console.error(error);
     });
 
-  // const fetchData = async () => {
-  //   setIsLoading(true);
-
-  //   try {
-  //     const response = await axios.request(options);
-  //     setData(response.data.data);
-  //     setIsLoading(false);
-  //   } catch (error) {
-  //     if (error.response.status === 429) {
-  //       // 429(트래픽 초과) 에러 시, 2초마다 한 번씩 요청 다시 보내기
-  //       await new Promise((resolve) => setTimeout(resolve, 2000));
-  //       fetchData();
-  //     } else {
-  //       setError(error);
-  //       alert("There is an error");
-  //     }
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
   const fetchData = async () => {
     setIsLoading(true);
 
     try {
       const response = await axios.request(options);
-
       setData(response.data.data);
       setIsLoading(false);
     } catch (error) {
-      setError(error);
-      console.log(error);
+      if (error.response.status === 429) {
+        // 429(트래픽 초과) 에러 시, 2초마다 한 번씩 요청 다시 보내기
+        await new Promise((resolve) => setTimeout(resolve, 2000));
+        fetchData();
+      } else {
+        setError(error);
+        alert("There is an error");
+      }
     } finally {
       setIsLoading(false);
     }
   };
+
+  // const fetchData = async () => {
+  //   setIsLoading(true);
+
+  //   try {
+  //     const response = await axios.request(options);
+
+  //     setData(response.data.data);
+  //     setIsLoading(false);
+  //   } catch (error) {
+  //     setError(error);
+  //     console.log(error);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
 
   useEffect(() => {
     fetchData();
