@@ -5,6 +5,9 @@
       "bundler": "metro"
     },
     "name": "expo_react_native_app",
-    "slug": "expo_react_native_app"
+    "slug": "expo_react_native_app",
+    "android": {
+      "package": "com.hyungjinhan.expo_react_native_app"
+    }
   }
 }
